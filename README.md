@@ -11,7 +11,7 @@ This is a sequential implementation from scratch using python primitives. The da
 1. Create and activate virtual environment
     
 ```
-virtualenv venv
+python3 -m venv venv
 source venv/bin/activate
 ```
     
