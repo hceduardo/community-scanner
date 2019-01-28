@@ -9,31 +9,34 @@ This is a sequential implementation from scratch using python primitives. The da
 ## Usage
 
 1. Create and activate virtual environment
-
-
-    virtualenv venv
-    source venv/bin/activate
-
-2. Install required python packages
-
     
-    pip install -r requirements.txt
-
+```
+virtualenv venv
+source venv/bin/activate
+```
+    
+2. Install required python packages
+    
+```
+pip install -r requirements.txt
+```
+    
 3. Run community detection algorithm for sample graph in Girvan-Newman paper:
     
-    
-    python community_scanner.py sample_files/girvan_graph.csv
+```
+python community_scanner.py sample_files/girvan_graph.csv
+```
 
 If the configuration flag DRAW (in config.py file) is set to True, the following plot will be displayed:
 
 ![](girvan-newman_graph.png)
 
 Also, the nodes of each community will be displayed in the console after the benchmarking data:
+```
+Edges: 38;		Target Level: 3;			Sequential Computing Time (seconds): 0.023710966110229492
 
-    Edges: 38;		Target Level: 3;			Sequential Computing Time (seconds): 0.023710966110229492
-    
-    ({1, 2, 3, 4, 5, 6, 7, 8}, {16, 17, 18, 19, 20, 21, 22}, {9, 10, 11, 12, 13, 14, 15})
- 
+({1, 2, 3, 4, 5, 6, 7, 8}, {16, 17, 18, 19, 20, 21, 22}, {9, 10, 11, 12, 13, 14, 15})
+```
 
 ## Internal Data Structures
 
