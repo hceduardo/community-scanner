@@ -8,22 +8,36 @@ This is a sequential implementation from scratch using python primitives. The da
 
 ## Usage
 
+### Environment Setup
+
 1. Create and activate virtual environment
     
-```
+```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
     
 2. Install required python packages
     
-```
+```bash
 pip install -r requirements.txt
 ```
-    
-3. Run community detection algorithm for sample graph in Girvan-Newman paper:
-    
+
+### Detect Communities
+
+The input file expected is a undirected weighted graph in the form of a csv file, where nodes IDs are integers and weights are floats:
+```bash
+source,target,weight
+1,6,1
+1,8,1
+2,3,1
+2,4,1
+2,4,1
 ```
+
+Run community detection algorithm for sample graph in [Girvan-Newman paper][1]:
+    
+```bash
 python community_scanner.py sample_files/girvan_graph.csv
 ```
 
@@ -36,6 +50,27 @@ Also, the nodes of each community will be displayed in the console after the ben
 Edges: 38;		Target Level: 3;			Sequential Computing Time (seconds): 0.023710966110229492
 
 ({1, 2, 3, 4, 5, 6, 7, 8}, {16, 17, 18, 19, 20, 21, 22}, {9, 10, 11, 12, 13, 14, 15})
+```
+
+### Profile Graph Parser
+
+Before the community detection algorithms are executed, the input file is parsed into a [Graph](../blob/master/model/graph.py) object.
+It is useful to know the parsing time and the size in memory the graph occupies for big data analytics applications.
+
+To profile and benchmark the parsing stage:
+
+1. Set the EDGE_LIMIT property in [config.py](../blob/master/config.py)
+
+2. Run the profiler as:
+
+```bash
+python graph_memory_profiler.py edges.csv 
+```
+
+The output would be as follows:
+
+```
+Number of edges: 100,000, Graph Size in Memory (MB): 22.46, Parsing Time (seconds):        3.7
 ```
 
 ## Internal Data Structures
@@ -109,7 +144,7 @@ Tuple of communities
 
 ## References
 
-1. Girvan M. and Newman M. E. J., Community structure in social and biological networks, Proc. Natl. Acad. Sci. USA 99, 7821–7826 (2002).
+[1]:1. Girvan M. and Newman M. E. J., Community structure in social and biological networks, Proc. Natl. Acad. Sci. USA 99, 7821–7826 (2002).
 2. Freeman, L., A Set of Measures of Centrality Based on Betweenness, Sociometry 40, 35–41  (1977).
 3. E. W. Dijkstra, A note on two problems in connexion with graphs. Numerische Mathematik, 1:269–
 271, (1959)
