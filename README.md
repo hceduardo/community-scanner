@@ -144,7 +144,7 @@ Tuple of communities
 
 ## References
 
-[1]:1. Girvan M. and Newman M. E. J., Community structure in social and biological networks, Proc. Natl. Acad. Sci. USA 99, 7821–7826 (2002).
+1. Girvan M. and Newman M. E. J., Community structure in social and biological networks, Proc. Natl. Acad. Sci. USA 99, 7821–7826 (2002).
 2. Freeman, L., A Set of Measures of Centrality Based on Betweenness, Sociometry 40, 35–41  (1977).
 3. E. W. Dijkstra, A note on two problems in connexion with graphs. Numerische Mathematik, 1:269–
 271, (1959)
