@@ -35,7 +35,7 @@ source,target,weight
 2,4,1
 ```
 
-Run community detection algorithm for sample graph in [Girvan-Newman paper][1]:
+Run community detection algorithm for sample graph in the Girvan-Newman paper [1]:
     
 ```bash
 python community_scanner.py sample_files/girvan_graph.csv
@@ -45,7 +45,7 @@ If the configuration flag DRAW (in config.py file) is set to True, the following
 
 ![](girvan-newman_graph.png)
 
-Also, the nodes of each community will be displayed in the console after the benchmarking data:
+The nodes of each community will be displayed in the console after the benchmarking data:
 ```
 Edges: 38;		Target Level: 3;			Sequential Computing Time (seconds): 0.023710966110229492
 
@@ -54,12 +54,12 @@ Edges: 38;		Target Level: 3;			Sequential Computing Time (seconds): 0.0237109661
 
 ### Profile Graph Parser
 
-Before the community detection algorithms are executed, the input file is parsed into a [Graph](../blob/master/model/graph.py) object.
+Before the community detection algorithms are executed, the input file is parsed into a [Graph](../master/model/graph.py) object.
 It is useful to know the parsing time and the size in memory the graph occupies for big data analytics applications.
 
 To profile and benchmark the parsing stage:
 
-1. Set the EDGE_LIMIT property in [config.py](../blob/master/config.py)
+1. Set the EDGE_LIMIT property in [config.py](../master/config.py)
 
 2. Run the profiler as:
 
