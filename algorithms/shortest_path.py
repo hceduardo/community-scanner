@@ -59,7 +59,6 @@ def single_source_shortest_paths_dijkstra(graph: Graph, source: int, cutoff=None
             elif u not in visited or vu_distance < visited[u]:  # shorter path found
                 visited[u] = vu_distance
                 heappush(heap, (vu_distance, v, u))
-                paths[u] = []
                 _update_paths(paths, u, v)
                 predecessors[u] = [v]
 
@@ -71,5 +70,6 @@ def single_source_shortest_paths_dijkstra(graph: Graph, source: int, cutoff=None
 
 
 def _update_paths(paths, u, v):
+    paths[u] = []  # Purge shortest paths list on new path distance
     for path in paths[v]:
         paths[u] = paths[u] + [path + [u]]

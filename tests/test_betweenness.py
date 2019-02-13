@@ -16,20 +16,19 @@ class BetweennessTests(unittest.TestCase):
         :return:
         """
 
-        for file in os.listdir(cfg.TESTS_IN_DIR):
-            edges_path = os.path.join(cfg.TESTS_IN_DIR, file)
+        edges_path = os.path.join(cfg.TESTS_IN_DIR, "simple_graph.csv")
 
-            graph = parse(edges_path)
+        graph = parse(edges_path)
 
-            graph_nx = nx.Graph()
-            graph_nx.add_weighted_edges_from(graph.weighted_edges)
+        graph_nx = nx.Graph()
+        graph_nx.add_weighted_edges_from(graph.weighted_edges)
 
-            top_edges_cs = get_edges_with_highest_betweenness(graph)
+        top_edges_cs = get_edges_with_highest_betweenness(graph)
 
-            betweenness_nx = edge_betweenness_centrality(graph_nx, normalized=False)
-            top_edges_nx = self.get_edges_with_highest_betweenness(betweenness_nx)
+        betweenness_nx = edge_betweenness_centrality(graph_nx, normalized=False)
+        top_edges_nx = self.get_edges_with_highest_betweenness(betweenness_nx)
 
-            self.assertEqual(top_edges_cs, top_edges_nx)
+        self.assertEqual(top_edges_cs, top_edges_nx)
 
     def get_edges_with_highest_betweenness(self, betweenness_dict):
 
