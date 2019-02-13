@@ -70,5 +70,6 @@ def single_source_shortest_paths_dijkstra(graph: Graph, source: int, cutoff=None
 
 
 def _update_paths(paths, u, v):
+    paths[u] = []  # Purge shortest paths list on new path distance
     for path in paths[v]:
         paths[u] = paths[u] + [path + [u]]
